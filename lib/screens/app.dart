@@ -7,6 +7,7 @@ class ContactListApp extends StatelessWidget {
     return MaterialApp(
       title: 'Contact List',
       home: ContactListPage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

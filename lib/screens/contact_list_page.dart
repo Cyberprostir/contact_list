@@ -4,6 +4,7 @@ import 'package:contact_list/screens/permissions_screen.dart';
 import 'package:contact_list/models/contact.dart';
 import 'package:contact_list/services/contact_service.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:contact_list/services/dummy_contacts.dart';
 
 class ContactListPage extends StatefulWidget {
   @override
@@ -21,7 +22,7 @@ class _ContactListPageState extends State<ContactListPage> {
 
   Future<void> _getContacts() async {
     if (await Permission.contacts.request().isGranted) {
-      List<LocalContact> fetchedContacts = await ContactService.getContacts();
+      List<LocalContact> fetchedContacts = await DummyContacts.create();
       setState(() {
         contacts = fetchedContacts;
       });
